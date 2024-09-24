@@ -12,8 +12,8 @@ public record CommentRequest(
         Long userId
 ) {
     public Comment toModel() {
-        var car = new Apartment();
-        car.setId(apartamentId);
+        var apartment = new Apartment();
+        apartment.setId(apartamentId);
 
         var user = new User();
         user.setId(userId);

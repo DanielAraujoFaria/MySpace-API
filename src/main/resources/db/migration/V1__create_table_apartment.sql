@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS Apartments (
     id bigint NOT NULL AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
     street VARCHAR(255) NOT NULL,
-    image_url VARCHAR(255) NOT NULL,
+    image_url VARCHAR(600) NOT NULL,
     description VARCHAR(255) NOT NULL,
     primary key (id)
     );

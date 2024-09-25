@@ -1,4 +1,4 @@
-INSERT INTO Comments (comment, created_date, apartment_id)
+INSERT INTO Comments (comment, created_date, apartments_id)
 VALUES
     ('Esse apartamento tem vaga de garagem?', CURRENT_DATE, 1),
     ('O apartamento é pet-friendly?', CURRENT_DATE, 2),

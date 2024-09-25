@@ -21,7 +21,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/users").permitAll()
                 .requestMatchers(HttpMethod.GET, "/apartments/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/comments").authenticated()
-                .requestMatchers(HttpMethod.DELETE, "/comments/**").hasRole("ADMIN")
+                //.requestMatchers(HttpMethod.DELETE, "/comments/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
         );
         http.addFilterBefore(authorizationFilter, UsernamePasswordAuthenticationFilter.class);

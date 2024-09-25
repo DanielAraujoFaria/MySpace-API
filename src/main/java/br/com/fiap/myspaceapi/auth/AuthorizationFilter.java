@@ -39,12 +39,12 @@ public class AuthorizationFilter extends OncePerRequestFilter {
             User user = tokenService.getUserFromToken(token);
 
             // Autorizar o usuário com base no papel
-            var auth = new UsernamePasswordAuthenticationToken(
+            /*var auth = new UsernamePasswordAuthenticationToken(
                     user.getUsername(),
                     null,
                     List.of(new SimpleGrantedAuthority(user.getRole()))
             );
-            SecurityContextHolder.getContext().setAuthentication(auth);
+            SecurityContextHolder.getContext().setAuthentication(auth);*/
 
             filterChain.doFilter(request, response);
         } catch (Exception e) {

@@ -29,11 +29,10 @@ public class TokenService {
         var token = JWT.create()
                 .withSubject(user.getId().toString())
                 .withClaim("username", user.getUsername())
-                .withClaim("role", user.getRole())
                 .withExpiresAt(expires)
                 .sign(ALGORITHM);
 
-        return new Token(token, user.getName(), user.getId().toString(), user.getRole());
+        return new Token(token, user.getUsername(), user.getId().toString());
     }
 
     public User getUserFromToken(String token) {

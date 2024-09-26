@@ -6,7 +6,6 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -38,13 +37,13 @@ public class AuthorizationFilter extends OncePerRequestFilter {
             var token = header.replace("Bearer ", "");
             User user = tokenService.getUserFromToken(token);
 
-            // Autorizar o usuário com base no papel
-            /*var auth = new UsernamePasswordAuthenticationToken(
+            // Autorizar o usuário sem o papel
+            var auth = new UsernamePasswordAuthenticationToken(
                     user.getUsername(),
                     null,
-                    List.of(new SimpleGrantedAuthority(user.getRole()))
+                    List.of() // Lista vazia de autoridades, pois não está usando roles
             );
-            SecurityContextHolder.getContext().setAuthentication(auth);*/
+            SecurityContextHolder.getContext().setAuthentication(auth);
 
             filterChain.doFilter(request, response);
         } catch (Exception e) {
@@ -58,4 +57,3 @@ public class AuthorizationFilter extends OncePerRequestFilter {
         }
     }
 }
-

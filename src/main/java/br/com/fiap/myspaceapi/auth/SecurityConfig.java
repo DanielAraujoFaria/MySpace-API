@@ -29,7 +29,7 @@ public class SecurityConfig {
                 .requestMatchers("/h2-console/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/comments").authenticated()
                 //.requestMatchers(HttpMethod.DELETE, "/comments/**").hasRole("ADMIN")
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()
         );
 
         http.addFilterBefore(authorizationFilter, UsernamePasswordAuthenticationFilter.class);
